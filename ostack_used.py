@@ -27,7 +27,7 @@ def build_hyplist(azone):
         pattern = '^.*nova-compute.*' + azone + ' .*$'
     for line in svclist:
         if re.search(pattern, line):
-            services.append(line.split()[3])
+            services.append(line.split()[5])
     hyplist = exec_cmd(nova_cmd + ['hypervisor-list'], verbose=False)
     for i in services:
         for line in hyplist:
